@@ -26,11 +26,11 @@ class Calculator {
     }
     
     func square(number: Double) -> Double {
-        return pow(number, 2)
+        return sqrt(number)
     }
     
     func elevate(number: Double) -> Double {
-        return sqrt(number)
+        return pow(number, 2)
     }
 }
 

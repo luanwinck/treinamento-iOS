@@ -15,14 +15,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    var number: Double = 0 {
-        didSet {
-            numberLabel.text = "\(number)"
-        }
-    }
+    var number: Double = 0
     
     var firstNumber: Double = 0
     var secondNumber: Double = 0
+    
+    var isResult = false
     
     lazy var calculator = Calculator()
     
@@ -33,17 +31,22 @@ class ViewController: UIViewController {
     @IBOutlet var numbersButtons: [UIButton]!
     
     @IBAction func onClickNumber(_ sender: UIButton) {
-        let numberLabel = sender.titleLabel?.text ?? ""
-        let concatedLabel = number > 0 ? "\(number)\(numberLabel)" : numberLabel
+        let buttonLabel = sender.titleLabel?.text ?? ""
         
-        number = Double(concatedLabel) ?? 0
+        var currentNumberLabel = "\(numberLabel.text != "0" ? numberLabel.text ?? "" : "")\(buttonLabel)"
+        
+        if isResult {
+           currentNumberLabel = "\(buttonLabel)"
+        }
+        
+        numberLabel.text = currentNumberLabel
+        
+        number = Double(currentNumberLabel) ?? 0
     }
     
     
     @IBAction func actionsButtons(_ sender: UIButton) {
         let actionLabel = sender.titleLabel?.text ?? ""
-        print(actionLabel)
-        
         var result: Double = 0
         
         if actionLabel == CalculatorActions.equal.rawValue {
@@ -66,22 +69,24 @@ class ViewController: UIViewController {
             }
             
         } else if actionLabel == CalculatorActions.elevated.rawValue {
-            result = calculator.elevate(number: firstNumber)
+            result = calculator.elevate(number: number)
         } else if actionLabel == CalculatorActions.square.rawValue {
-            result = calculator.square(number: firstNumber)
+            result = calculator.square(number: number)
         } else {
             firstNumber = number
-            number = 0
             selectedAction = actionLabel
         }
         
         number = result
+        numberLabel.text = "\(result)"
+        isResult = true
     }
     
     @IBAction func clear(_ sender: Any) {
         number = 0
         firstNumber = 0
         secondNumber = 0
+        numberLabel.text = "0"
     }
 }
 
