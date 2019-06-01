@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     
     var selectedAction: String = ""
     
+    @IBOutlet weak var resultLabel: UILabel!
+    
     @IBOutlet weak var numberLabel: UILabel!
     
     @IBOutlet var numbersButtons: [UIButton]!
@@ -65,7 +67,8 @@ class ViewController: UIViewController {
                     result = calculator.divideNumbers(first: firstNumber, second: number)
                     break
                 default:
-                    print("default")
+                    result = 0
+                    break
             }
             
         } else if actionLabel == CalculatorActions.elevated.rawValue {
@@ -78,8 +81,11 @@ class ViewController: UIViewController {
         }
         
         number = result
-        numberLabel.text = "\(result)"
         isResult = true
+        
+        if result != 0 {
+            resultLabel.text = "\(result)"
+        }
     }
     
     @IBAction func clear(_ sender: Any) {
@@ -87,6 +93,7 @@ class ViewController: UIViewController {
         firstNumber = 0
         secondNumber = 0
         numberLabel.text = "0"
+        resultLabel.text = "0"
     }
 }
 
