@@ -14,7 +14,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    
+    @IBAction func onTouchDetailCoin(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "detail", sender: sender)
+    }
+    
 
 }
 
