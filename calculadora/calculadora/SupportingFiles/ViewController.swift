@@ -35,11 +35,11 @@ class ViewController: UIViewController {
     @IBAction func onClickNumber(_ sender: UIButton) {
         let buttonLabel = sender.titleLabel?.text ?? ""
         
-        var currentNumberLabel = "\(numberLabel.text != "0" ? numberLabel.text ?? "" : "")\(buttonLabel)"
-        
         if isResult {
-           currentNumberLabel = "\(buttonLabel)"
+            numberLabel.text = "0"
         }
+        
+        let currentNumberLabel = "\(numberLabel.text != "0" ? numberLabel.text ?? "" : "")\(buttonLabel)"
         
         numberLabel.text = currentNumberLabel
         
