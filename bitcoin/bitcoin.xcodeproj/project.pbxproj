@@ -12,6 +12,8 @@
 		2795DC6322A2DB3E00F83E61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2795DC6122A2DB3E00F83E61 /* Main.storyboard */; };
 		2795DC6522A2DB4100F83E61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2795DC6422A2DB4100F83E61 /* Assets.xcassets */; };
 		2795DC6822A2DB4100F83E61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2795DC6622A2DB4100F83E61 /* LaunchScreen.storyboard */; };
+		2795DC7022A2FD9500F83E61 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2795DC6F22A2FD9500F83E61 /* DesignableView.swift */; };
+		2795DC7222A2FDBF00F83E61 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2795DC7122A2FDBF00F83E61 /* UIViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		2795DC6422A2DB4100F83E61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2795DC6722A2DB4100F83E61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2795DC6922A2DB4100F83E61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2795DC6F22A2FD9500F83E61 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
+		2795DC7122A2FDBF00F83E61 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				2795DC6422A2DB4100F83E61 /* Assets.xcassets */,
 				2795DC6622A2DB4100F83E61 /* LaunchScreen.storyboard */,
 				2795DC6922A2DB4100F83E61 /* Info.plist */,
+				2795DC6F22A2FD9500F83E61 /* DesignableView.swift */,
+				2795DC7122A2FDBF00F83E61 /* UIViewExtensions.swift */,
 			);
 			path = bitcoin;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			files = (
 				2795DC6022A2DB3E00F83E61 /* ViewController.swift in Sources */,
 				2795DC5E22A2DB3E00F83E61 /* AppDelegate.swift in Sources */,
+				2795DC7222A2FDBF00F83E61 /* UIViewExtensions.swift in Sources */,
+				2795DC7022A2FD9500F83E61 /* DesignableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
