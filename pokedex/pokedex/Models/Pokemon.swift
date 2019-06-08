@@ -17,8 +17,4 @@ struct Pokemon: Codable {
     let name: String
     let image: String
     let types: [PokemonType]
-    
-    enum PokemonType: String, Codable {
-        case grass, bug, poison, fire, normal, water, rock, flying, ground
-    }
 }
