@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PokemonListViewController.swift
 //  Pokedex
 //
 //  Created by Juliano Nardon on 07/06/19.
@@ -8,18 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PokemonListViewController: UIViewController {
     
     var requestMaker = RequestMaker()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        testAPI()
     }
 
 }
 
-extension ViewController {
+extension PokemonListViewController {
     func testAPI() {
         requestMaker.make(withEndpointUrl: .list) { (pokemonList: PokemonList) in
             print(pokemonList)
