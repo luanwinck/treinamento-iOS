@@ -14,6 +14,7 @@
 		271F36F122AC11F4007BFD84 /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F36F022AC11F4007BFD84 /* PokemonTableViewCell.swift */; };
 		271F36F322AC20B8007BFD84 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F36F222AC20B8007BFD84 /* UIImageViewExtensions.swift */; };
 		271F36F522AC2F3E007BFD84 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F36F422AC2F3D007BFD84 /* DetailViewController.swift */; };
+		274483C422B1264600E886C5 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274483C322B1264600E886C5 /* UIColorExtensions.swift */; };
 		91E67BAB573B0E7FB7D59C91 /* Pods_Pokedex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820538B5959FF946C8214A7A /* Pods_Pokedex.framework */; };
 		ABD8C93B22AAC4FA00AB3718 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD8C93A22AAC4FA00AB3718 /* AppDelegate.swift */; };
 		ABD8C93D22AAC4FA00AB3718 /* PokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD8C93C22AAC4FA00AB3718 /* PokemonListViewController.swift */; };
@@ -32,6 +33,7 @@
 		271F36F022AC11F4007BFD84 /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
 		271F36F222AC20B8007BFD84 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		271F36F422AC2F3D007BFD84 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		274483C322B1264600E886C5 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		53598FA82E3384930C643553 /* Pods-Pokedex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex.release.xcconfig"; path = "Target Support Files/Pods-Pokedex/Pods-Pokedex.release.xcconfig"; sourceTree = "<group>"; };
 		820538B5959FF946C8214A7A /* Pods_Pokedex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pokedex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABD8C93722AAC4FA00AB3718 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 			children = (
 				ABD8C95022AAD75F00AB3718 /* UIViewExtensions.swift */,
 				271F36F222AC20B8007BFD84 /* UIImageViewExtensions.swift */,
+				274483C322B1264600E886C5 /* UIColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				271F36F522AC2F3E007BFD84 /* DetailViewController.swift in Sources */,
 				271F36F122AC11F4007BFD84 /* PokemonTableViewCell.swift in Sources */,
 				271F36EE22ABF3CB007BFD84 /* DesinableImageView.swift in Sources */,
+				274483C422B1264600E886C5 /* UIColorExtensions.swift in Sources */,
 				271F36E822ABE23F007BFD84 /* Pokemon.swift in Sources */,
 				ABD8C93D22AAC4FA00AB3718 /* PokemonListViewController.swift in Sources */,
 				ABD8C94E22AAC55100AB3718 /* PokemonType.swift in Sources */,

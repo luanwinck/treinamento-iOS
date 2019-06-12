@@ -10,55 +10,58 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    
+    @IBOutlet var gradientView: GradientView!
+    
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var pokemon: Pokemon?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.initialConfig()
     }
     
-    @IBOutlet weak var tableView: UITableView!
-    
-    @IBAction func backAction(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.loadingPokemonAnimation()
+        self.requestPokemon()
     }
-}
-
-extension DetailViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        <#code#>
-//    }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 0
-        } else if section == 1 {
-            return 48
+    func requestPokemon() {
+        if let pokemon = self.pokemon {
+            let requestMaker = RequestMaker()
+            
+            requestMaker.make(withEndpointUrl: .details(query: pokemon.id)) { (pokemon: Pokemon) in
+                
+            }
         }
         
-        return 0
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 130
-        }
+ 
+    func loadingPokemonAnimation() {
+        UIView.animate(withDuration: 1, delay: 0, options: [.repeat, .autoreverse], animations: {
+            self.imageView.alpha = 0.2
+        })
         
-        return 1500
+        
+//        UIView.animate(withDuration: 1, animations: {
+//            self.imageView.alpha = self.imageView.alpha == 1 ? 0.2 : 1
+//        }) { _ in
+//            self.loadingPokemonAnimation()
+//        }
     }
     
-    
-}
-
-extension DetailViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+    func initialConfig() {
+        if let pokemon = self.pokemon {
+            self.gradientView.startColor = pokemon.types.first?.color ?? .black
+            self.gradientView.endColor = pokemon.types.first?.color?.lighter() ?? .white
+            
+            self.imageView.loadImage(from: pokemon.image)
+        }
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
     
 }
