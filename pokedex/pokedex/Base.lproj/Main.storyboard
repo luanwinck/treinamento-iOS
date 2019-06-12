@@ -262,11 +262,28 @@
                                     <constraint firstAttribute="width" constant="160" id="hee-un-8J9"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpS-b4-CV9">
+                                <rect key="frame" x="0.0" y="20" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SuG-4J-zKl"/>
+                                    <constraint firstAttribute="width" constant="44" id="cQn-DC-QT1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="▼">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissAction:" destination="Yvz-SH-1PS" eventType="touchUpInside" id="wKb-Hp-0ZI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Vx9-7t-xnG" firstAttribute="centerX" secondItem="M3u-hP-UQg" secondAttribute="centerX" id="28W-Bx-kjN"/>
-                            <constraint firstItem="Vx9-7t-xnG" firstAttribute="centerY" secondItem="M3u-hP-UQg" secondAttribute="centerY" id="bUf-ln-wYj"/>
+                            <constraint firstItem="gpS-b4-CV9" firstAttribute="leading" secondItem="M3u-hP-UQg" secondAttribute="leading" id="9Yj-ue-9Os"/>
+                            <constraint firstItem="Vx9-7t-xnG" firstAttribute="centerY" secondItem="M3u-hP-UQg" secondAttribute="centerY" priority="999" id="bUf-ln-wYj"/>
+                            <constraint firstItem="Vx9-7t-xnG" firstAttribute="top" secondItem="M3u-hP-UQg" secondAttribute="top" priority="900" constant="20" id="dLt-WG-YaH"/>
+                            <constraint firstItem="gpS-b4-CV9" firstAttribute="top" secondItem="M3u-hP-UQg" secondAttribute="top" id="gsH-Y9-Mug"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M3u-hP-UQg"/>
                         <userDefinedRuntimeAttributes>
@@ -275,7 +292,11 @@
                     </view>
                     <connections>
                         <outlet property="gradientView" destination="MhK-UE-MbY" id="zit-j6-jse"/>
-                        <outlet property="imageView" destination="Vx9-7t-xnG" id="o3g-2Q-No3"/>
+                        <outlet property="pokemonImageView" destination="Vx9-7t-xnG" id="o3g-2Q-No3"/>
+                        <outlet property="pokemonImageViewCenterVerticallyConstraint" destination="bUf-ln-wYj" id="0cf-W6-3ev"/>
+                        <outlet property="pokemonImageViewHeightConstraint" destination="GXi-iA-jyK" id="JfS-vc-PCK"/>
+                        <outlet property="pokemonImageViewTopConstraint" destination="dLt-WG-YaH" id="8uf-2u-V3U"/>
+                        <outlet property="pokemonImageViewWidthConstraint" destination="hee-un-8J9" id="wSi-ay-VwE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G55-tR-OWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
