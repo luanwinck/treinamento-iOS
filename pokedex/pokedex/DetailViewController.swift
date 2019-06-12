@@ -24,6 +24,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var pokemonImageViewCenterVerticallyConstraint: NSLayoutConstraint!
     @IBOutlet weak var pokemonImageViewTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var pokemontTypeView: PokemonTypeView!
     
     var pokemon: Pokemon?
     
@@ -31,6 +32,10 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.initialConfig()
+        
+        if let pokemonType = self.pokemon?.types.first {
+            self.pokemontTypeView.config(type: pokemonType)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
