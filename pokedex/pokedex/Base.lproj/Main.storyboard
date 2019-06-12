@@ -164,6 +164,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFV-9x-fxa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8vF-dI-Yxs">
+                                        <rect key="frame" x="188.66666666666666" y="325" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.29655393835616439" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="8vF-dI-Yxs" firstAttribute="centerX" secondItem="dFV-9x-fxa" secondAttribute="centerX" id="NYy-J5-mXG"/>
+                                    <constraint firstItem="8vF-dI-Yxs" firstAttribute="centerY" secondItem="dFV-9x-fxa" secondAttribute="centerY" id="g6x-Iz-Wsp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -171,17 +184,22 @@
                             <constraint firstItem="HvV-Mw-mCJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BMG-PR-xU1"/>
                             <constraint firstItem="HvV-Mw-mCJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Qak-ar-FbY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HvV-Mw-mCJ" secondAttribute="bottom" id="Zay-FE-Ev7"/>
+                            <constraint firstItem="dFV-9x-fxa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="az3-z4-5Kd"/>
+                            <constraint firstItem="dFV-9x-fxa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-64" id="bG9-Gw-hhq"/>
+                            <constraint firstItem="dFV-9x-fxa" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hxZ-DK-Zxv"/>
+                            <constraint firstItem="dFV-9x-fxa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vBn-Kn-cME"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pokemon" id="RFZ-PE-x1W"/>
                     <connections>
+                        <outlet property="activityView" destination="dFV-9x-fxa" id="pqc-MF-VVE"/>
                         <outlet property="tableView" destination="HvV-Mw-mCJ" id="Nza-iv-a68"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="586.95652173913049" y="-105.13392857142857"/>
+            <point key="canvasLocation" x="586.95652173913049" y="-105.16304347826087"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="eXG-6n-wLH">

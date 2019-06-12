@@ -12,6 +12,8 @@ class PokemonListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var activityView: UIView!
+    
     let requestMaker = RequestMaker()
     
     var pokemonList = [Pokemon]()
@@ -61,6 +63,7 @@ extension PokemonListViewController {
             self.pokemonList = pokemonList.pokemons
             
             DispatchQueue.main.async {
+                self.activityView.isHidden = true
                 self.tableView.reloadData()
             }
         }
