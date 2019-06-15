@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum RequestMakerError: Error {
+    case malformedURL
+    case requestFailed
+    case invalidData
+    case decodingFailed
+}
+
 class RequestMaker {
     static let decoder = JSONDecoder()
     
@@ -30,31 +37,46 @@ class RequestMaker {
     
     let baseUrl = "http://localhost:3000/"
     let session = URLSession.shared
-    typealias CompletionCallback<T: Decodable> = (T) -> Void
+    
+    typealias RequestResult<T> = Result<T, RequestMakerError>
+    typealias CompletionCallback<T: Decodable> = (RequestResult<T>) -> Void
+    typealias SuccessCallback<T: Decodable> = (T) -> Void
+    
+    func make<T: Decodable>(withEndpointUrl endpointUrl: Endpoint, completion: @escaping SuccessCallback<T>) {
+        self.make(withEndpointUrl: endpointUrl) { (result: RequestResult<T>) in
+            switch result {
+            case .success(let object):
+                completion(object)
+            case .failure:
+                break
+            }
+        }
+    }
     
     func make<T: Decodable>(withEndpointUrl endpointUrl: Endpoint, completion: @escaping CompletionCallback<T>) {
         guard let url = URL(string: "\(baseUrl)\(endpointUrl.url)") else {
+            completion(.failure(.malformedURL))
             return
         }
         
         let dataTask = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
             
             guard error == nil else {
-                print(error!)
+                completion(.failure(.requestFailed))
                 return
             }
             
             guard let data = data else {
-                print("nao veio")
+                completion(.failure(.invalidData))
                 return
             }
             
             do {
                 let decodedObject = try RequestMaker.decoder.decode(T.self, from: data)
                 
-                completion(decodedObject)
+                completion(.success(decodedObject))
             } catch let error {
-                print(error)
+                completion(.failure(.decodingFailed))
             }
         }
         

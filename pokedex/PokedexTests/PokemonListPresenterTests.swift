@@ -11,8 +11,28 @@ import XCTest
 
 class PokemonListPresenterTests: XCTestCase {
 
-    func testExample() {
-      let presenter = PokemonListPresenter()
+    func testFetchData() {
+        let expectation = XCTestExpectation(description: "")
+        
+        let presenter = PokemonListPresenter()
+        let view = PokemonListViewMock {
+            expectation.fulfill()
+        }
+        presenter.view = view
+        presenter.fetchData()
+        
+        wait(for: [expectation], timeout: 1.0)
     }
+}
 
+class PokemonListViewMock: PokemonListViewType {
+    let fulfill: () -> Void
+    
+    init(fulfill: @escaping () -> Void) {
+        self.fulfill = fulfill
+    }
+    
+    func reloadData() {
+        self.fulfill()
+    }
 }

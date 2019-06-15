@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PokemonListViewType: AnyObject {
+    func reloadData()
+}
+
 class PokemonListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -21,7 +25,7 @@ class PokemonListViewController: UIViewController {
         
         self.configTable()
         self.presenter.view = self
-        presenter.fetchData()
+        self.presenter.fetchData()
     }
     
     private func configTable() {
@@ -30,39 +34,10 @@ class PokemonListViewController: UIViewController {
     }
 }
 
-extension PokemonListViewController {
+extension PokemonListViewController: PokemonListViewType {
     func reloadData() {
         self.activityView.isHidden = true
         self.tableView.reloadData()
-    }
-}
-
-class PokemonListPresenter: NSObject {
-    
-    weak var view: PokemonListViewController?
-    
-    private let requestMaker = RequestMaker()
-    
-    private var pokemonList = [Pokemon]()
-    
-    func pokemon(at index: Int) -> Pokemon {
-        return pokemonList[index]
-    }
-}
-
-extension PokemonListPresenter: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.pokemonList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "pokemon", for: indexPath)
-        
-        if let pokemonCell = cell as? PokemonTableViewCell {
-            pokemonCell.config(with: self.pokemonList[indexPath.row])
-        }
-        
-        return cell
     }
 }
 
@@ -76,19 +51,4 @@ extension PokemonListViewController: UITableViewDelegate {
     }
 }
 
-extension PokemonListPresenter {
-    func fetchData() {
-        requestMaker.make(withEndpointUrl: .list) { (pokemonList: PokemonList) in
-            self.pokemonList = pokemonList.pokemons
-            
-            DispatchQueue.main.async {
-                self.view?.reloadData()
-            }
-        }
-        
-        requestMaker.make(withEndpointUrl: .details(query: "5")) { (pokemon: Pokemon) in
-            print(pokemon)
-        }
-    }
-}
 

@@ -32,6 +32,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.initialConfig()
+        view.accessibilityIdentifier = "detailView"
         
         if let pokemonType = self.pokemon?.types.first {
             self.pokemontTypeView.config(type: pokemonType)
