@@ -14,25 +14,43 @@ class PokemonListViewController: UIViewController {
     
     @IBOutlet weak var activityView: UIView!
     
-    let requestMaker = RequestMaker()
-    
-    var pokemonList = [Pokemon]()
+    private let presenter = PokemonListPresenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.configTable()
-        self.fetchData()
+        self.presenter.view = self
+        presenter.fetchData()
     }
     
     private func configTable() {
         self.tableView.delegate = self
-        self.tableView.dataSource = self
+        self.tableView.dataSource = presenter
     }
-
 }
 
-extension PokemonListViewController: UITableViewDataSource {
+extension PokemonListViewController {
+    func reloadData() {
+        self.activityView.isHidden = true
+        self.tableView.reloadData()
+    }
+}
+
+class PokemonListPresenter: NSObject {
+    
+    weak var view: PokemonListViewController?
+    
+    private let requestMaker = RequestMaker()
+    
+    private var pokemonList = [Pokemon]()
+    
+    func pokemon(at index: Int) -> Pokemon {
+        return pokemonList[index]
+    }
+}
+
+extension PokemonListPresenter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.pokemonList.count
     }
@@ -52,20 +70,19 @@ extension PokemonListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = self.storyboard
         if let detailViewController = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
-            detailViewController.pokemon = self.pokemonList[indexPath.row]
+            detailViewController.pokemon = self.presenter.pokemon(at: indexPath.row)
             self.navigationController?.present(detailViewController, animated: true)
         }
     }
 }
 
-extension PokemonListViewController {
+extension PokemonListPresenter {
     func fetchData() {
         requestMaker.make(withEndpointUrl: .list) { (pokemonList: PokemonList) in
             self.pokemonList = pokemonList.pokemons
             
             DispatchQueue.main.async {
-                self.activityView.isHidden = true
-                self.tableView.reloadData()
+                self.view?.reloadData()
             }
         }
         
