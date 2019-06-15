@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -37,7 +36,7 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" name="fight"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="yA3-To-Rmd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5fK-YP-cuH"/>
                 <constraint firstAttribute="bottom" secondItem="yA3-To-Rmd" secondAttribute="bottom" id="YWV-Rl-Mz3"/>
@@ -55,8 +54,5 @@
     </objects>
     <resources>
         <image name="ic_bug" width="14" height="17"/>
-        <namedColor name="fight">
-            <color red="0.85100001096725464" green="0.25900000333786011" blue="0.33700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>
