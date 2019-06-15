@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol PokemonListViewType: AnyObject {
-    func reloadData()
-}
-
 class PokemonListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -47,6 +43,46 @@ extension PokemonListViewController: UITableViewDelegate {
         if let detailViewController = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
             detailViewController.pokemon = self.presenter.pokemon(at: indexPath.row)
             self.navigationController?.present(detailViewController, animated: true)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let actionType = self.presenter.swipeAction(for: indexPath.row)
+        
+        let contextualAction = UIContextualAction(style: .normal, title: actionType.text) { (action, view, handler) in
+            
+            self.presenter.swipe(at: indexPath.row)
+            
+            handler(true)
+        }
+        
+        contextualAction.backgroundColor = actionType.color
+        
+        let configuration = UISwipeActionsConfiguration(actions: [contextualAction])
+        
+        return configuration
+    }
+}
+
+enum PokemonSwipeActions {
+    case addFavorite, removeFavorite
+    
+    var text: String {
+        switch self {
+        case .addFavorite:
+            return "⭐️"
+        case .removeFavorite:
+            return "🥶"
+        }
+    }
+    
+    var color: UIColor {
+        switch self {
+        case .addFavorite:
+            return .purple
+        case .removeFavorite:
+            return .black
         }
     }
 }
