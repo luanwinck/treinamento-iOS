@@ -52,18 +52,126 @@
         <!--Item-->
         <scene sceneID="flR-Ab-ieE">
             <objects>
-                <viewController id="143-51-L4d" sceneMemberID="viewController">
+                <viewController id="143-51-L4d" customClass="FavoriteListViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C4L-8w-aCP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="x4Y-r8-Qj2">
+                                <rect key="frame" x="0.0" y="13" width="414" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="9ug-z1-Wz0">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="24" minY="30" maxX="24" maxY="30"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favorite" id="hcm-S9-eY7" customClass="PokemonColletionViewCell" customModule="Pokedex" customModuleProvider="target">
+                                        <rect key="frame" x="24" y="30" width="150" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mes-Ac-iW4" customClass="GradientView" customModule="Pokedex" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pikashadow" translatesAutoresizingMaskIntoConstraints="NO" id="muz-kr-xlV">
+                                                            <rect key="frame" x="30" y="13" width="90" height="90"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="90" id="ONx-d0-MYz"/>
+                                                                <constraint firstAttribute="width" constant="90" id="SdQ-A3-tPL"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jow-bH-yx1">
+                                                            <rect key="frame" x="10.666666666666671" y="113" width="129" height="82"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvD-Ow-3cg">
+                                                                    <rect key="frame" x="8.0000000000000711" y="16" width="44" height="22"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnK-5D-wbI">
+                                                                    <rect key="frame" x="8.0000000000000711" y="56" width="36" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="82" id="ZEw-3w-BnX"/>
+                                                                <constraint firstAttribute="width" constant="129" id="fo1-oj-RYy"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="8"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="water"/>
+                                                    <constraints>
+                                                        <constraint firstItem="muz-kr-xlV" firstAttribute="top" secondItem="Mes-Ac-iW4" secondAttribute="top" constant="13" id="An9-3Q-oxC"/>
+                                                        <constraint firstItem="muz-kr-xlV" firstAttribute="centerX" secondItem="Mes-Ac-iW4" secondAttribute="centerX" id="MBJ-nO-Tkz"/>
+                                                        <constraint firstAttribute="bottom" secondItem="jow-bH-yx1" secondAttribute="bottom" constant="5" id="sXb-Ii-RV6"/>
+                                                        <constraint firstItem="jow-bH-yx1" firstAttribute="centerX" secondItem="Mes-Ac-iW4" secondAttribute="centerX" id="taM-0R-HXJ"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                            <color key="value" name="ghost"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                            <color key="value" name="dragon"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" name="dragon"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Mes-Ac-iW4" secondAttribute="trailing" id="2mr-ye-Bck"/>
+                                            <constraint firstAttribute="bottom" secondItem="Mes-Ac-iW4" secondAttribute="bottom" id="OeJ-L6-9yf"/>
+                                            <constraint firstItem="Mes-Ac-iW4" firstAttribute="leading" secondItem="hcm-S9-eY7" secondAttribute="leading" id="XeW-du-yXu"/>
+                                            <constraint firstItem="Mes-Ac-iW4" firstAttribute="top" secondItem="hcm-S9-eY7" secondAttribute="top" id="tt1-QK-97R"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="idLabel" destination="lnK-5D-wbI" id="idW-IN-o7p"/>
+                                            <outlet property="nameLabel" destination="LvD-Ow-3cg" id="bpC-33-tnM"/>
+                                            <outlet property="pictureImageView" destination="muz-kr-xlV" id="d9v-2I-RiC"/>
+                                            <outlet property="wrapperView" destination="Mes-Ac-iW4" id="uhq-ut-JoS"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lj7-gi-mXR" firstAttribute="trailing" secondItem="x4Y-r8-Qj2" secondAttribute="trailing" id="L7U-0F-FkS"/>
+                            <constraint firstItem="lj7-gi-mXR" firstAttribute="bottom" secondItem="x4Y-r8-Qj2" secondAttribute="bottom" id="PJq-l7-Crf"/>
+                            <constraint firstItem="x4Y-r8-Qj2" firstAttribute="top" secondItem="lj7-gi-mXR" secondAttribute="top" id="jqN-Tb-Tlz"/>
+                            <constraint firstItem="x4Y-r8-Qj2" firstAttribute="leading" secondItem="C4L-8w-aCP" secondAttribute="leading" id="rgf-6A-Crp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lj7-gi-mXR"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="aqc-wx-cyz"/>
+                    <connections>
+                        <outlet property="collectionView" destination="x4Y-r8-Qj2" id="h1x-E4-DWE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bau-h7-b9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1278" y="668"/>
+            <point key="canvasLocation" x="-1278.2608695652175" y="667.66304347826087"/>
         </scene>
         <!--Pokemon-->
         <scene sceneID="tne-QT-ifu">
@@ -323,8 +431,17 @@
         <namedColor name="bug">
             <color red="0.61599999666213989" green="0.75700002908706665" blue="0.18799999356269836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="dragon">
+            <color red="0.027000000700354576" green="0.45100000500679016" blue="0.77999997138977051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ghost">
+            <color red="0.41200000047683716" green="0.43900001049041748" blue="0.77300000190734863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ice">
             <color red="0.49399998784065247" green="0.83099997043609619" blue="0.78799998760223389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="water">
+            <color red="0.33300000429153442" green="0.62000000476837158" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

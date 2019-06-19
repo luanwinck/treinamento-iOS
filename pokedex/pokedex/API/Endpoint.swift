@@ -7,3 +7,36 @@
 //
 
 import Foundation
+
+extension RequestMaker {
+    enum Endpoint {
+        case list
+        case details(query: String)
+        case moves
+        case favorites(ids: Set<String>)
+        
+        var url: String {
+            switch self {
+            case .list:
+                return "list"
+            case let .details(query):
+                return "details/\(query)"
+            case .moves:
+                return "moves"
+            case let .favorites(ids):
+                return "details\(destrinchIdsAsParams(ids))"
+            }
+        }
+    }
+}
+
+private func destrinchIdsAsParams(_ ids: Set<String>) -> String {
+    var localCopiedIds = ids
+    var result = "?id=\(localCopiedIds.removeFirst())"
+    
+    for id in localCopiedIds {
+        result += "&id=\(id)"
+    }
+    
+    return result
+}

@@ -18,23 +18,6 @@ enum RequestMakerError: Error {
 class RequestMaker {
     static let decoder = JSONDecoder()
     
-    enum Endpoint {
-        case list
-        case details(query: String)
-        case moves
-        
-        var url: String {
-            switch self {
-            case .list:
-                return "list"
-            case let .details(query):
-                return "details/\(query)"
-            case .moves:
-                return "moves"
-            }
-        }
-    }
-    
     let baseUrl = "http://localhost:3000/"
     let session = URLSession.shared
     
